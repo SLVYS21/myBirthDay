@@ -21,9 +21,13 @@
   <button id="toggle-music">
     <i class="fa fa-pause"></i>
   </button>
+  <button id="play-music">Play Music</button>
 
-  <script>
+<script>
     const music = document.getElementById("bg-music");
+    document.getElementById("play-music").addEventListener("click", () => {
+      music.play().catch(error => console.log("Erreur de lecture:", error));
+    });
     const toggleBtn = document.getElementById("toggle-music");
     const icon = toggleBtn.querySelector("i");
 
