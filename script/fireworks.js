@@ -247,6 +247,7 @@ function loop() {
 		if( mousedown ) {
 			// start the firework at the bottom middle of the screen, then set the current mouse coordinates as the target
 			fireworks.push( new Firework( cw / 2, ch, mx, my ) );
+
 			limiterTick = 0;
 		}
 	} else {
@@ -271,6 +272,13 @@ canvas.addEventListener( 'mouseup', function( e ) {
 	e.preventDefault();
 	mousedown = false;
 });
+
+window.addEventListener('resize', () => {
+    cw = window.innerWidth;
+    ch = window.innerHeight;
+    canvas.width = cw;
+    canvas.height = ch;
+  });  
 
 // once the window loads, we are ready for some fireworks!
 window.onload = loop;
