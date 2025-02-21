@@ -18,22 +18,18 @@
     Your browser does not support the audio element.
   </audio>
 
-  <button id="toggle-music">
-    <i class="fa fa-pause"></i>
+  <button id="play-pause">
+    <i class="fa fa-play"></i>
   </button>
-  <button id="play-music">Play Music</button>
-
-<script>
+  
+  <script>
     const music = document.getElementById("bg-music");
-    document.getElementById("play-music").addEventListener("click", () => {
-      music.play().catch(error => console.log("Erreur de lecture:", error));
-    });
-    const toggleBtn = document.getElementById("toggle-music");
-    const icon = toggleBtn.querySelector("i");
-
-    toggleBtn.addEventListener("click", () => {
+    const playPauseBtn = document.getElementById("play-pause");
+    const icon = playPauseBtn.querySelector("i");
+  
+    playPauseBtn.addEventListener("click", () => {
       if (music.paused) {
-        music.play();
+        music.play().catch(error => console.log("Erreur de lecture:", error));
         icon.classList.remove("fa-play");
         icon.classList.add("fa-pause");
       } else {
@@ -43,7 +39,7 @@
       }
     });
   </script>
-  <canvas id="canvas">Canvas is not supported in your browser.</canvas>
+    <canvas id="canvas">Canvas is not supported in your browser.</canvas>
   <div class="container">
     <div class="one">
       <h1 class="one">
