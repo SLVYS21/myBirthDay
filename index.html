@@ -9,9 +9,36 @@
   <link href="https://fonts.googleapis.com/css?family=Work+Sans:300,400" rel="stylesheet">
   <link rel="shortcut icon" type="image/png" href="img/favicon.png" />
   <link rel="stylesheet" href="style/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
 
 <body>
+  <audio id="bg-music" autoplay loop>
+    <source src="music/happy.mp3" type="audio/mp3">
+    Your browser does not support the audio element.
+  </audio>
+
+  <button id="toggle-music">
+    <i class="fa fa-pause"></i>
+  </button>
+
+  <script>
+    const music = document.getElementById("bg-music");
+    const toggleBtn = document.getElementById("toggle-music");
+    const icon = toggleBtn.querySelector("i");
+
+    toggleBtn.addEventListener("click", () => {
+      if (music.paused) {
+        music.play();
+        icon.classList.remove("fa-play");
+        icon.classList.add("fa-pause");
+      } else {
+        music.pause();
+        icon.classList.remove("fa-pause");
+        icon.classList.add("fa-play");
+      }
+    });
+  </script>
   <canvas id="canvas">Canvas is not supported in your browser.</canvas>
   <div class="container">
     <div class="one">
